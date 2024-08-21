@@ -17,3 +17,5 @@ gh-pages/
 /.clj-kondo/.cache
 /.clj-kondo/rewrite-clj
 /plugins/demo/resources/public/js/
+
+/.clj-kondo/*

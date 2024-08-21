@@ -13,3 +13,9 @@
 (defn foo [])
 
 (js/alert "Isn't this cool? :)")
+
+(defn hello [] (println "hello"))
+(defn hello-2 [] (js/console.log "hello dude"))
+
+(defn hello3 [] (js/console.log "tada..."))
+(hello3)
