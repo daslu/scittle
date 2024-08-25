@@ -1,8 +1,9 @@
 {:deps {io.github.babashka/scittle.build {:local/root "../../build"}
+        io.github.babashka/http-server {:git/sha "b38c1f16ad2c618adae2c3b102a5520c261a7dd3"}
         ;; emmy plugin
-        io.github.emmy/scittle.emmy {:local/root "../../plugins/emmy"}
-        io.github.babashka/http-server
-        {:git/sha "b38c1f16ad2c618adae2c3b102a5520c261a7dd3"}}
+        io.github.babashka/scittle.emmy {:local/root "../../plugins/emmy"}
+        io.github.babashka/scittle.emmy-viewers {:local/root "../../plugins/emmy_viewers"}
+        }
  :tasks
  {:requires ([scittle.build :as build])
   watch   {:doc "Watch build"
