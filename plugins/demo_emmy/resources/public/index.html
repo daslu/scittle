@@ -2,13 +2,23 @@
 <html>
   <head>
     <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
     <script src="/js/scittle.js" type="application/javascript"></script>
+    <script src="/js/scittle.reagent.js" type="application/javascript"></script>
     <script src="/js/scittle.emmy.js" type="application/javascript"></script>
+    <script src="/js/scittle.emmy-viewers.js" type="application/javascript"></script>
     <script type="application/x-scittle">
 
 (require '[emmy.env :as e])
 (def result (e/->infix (e/square (e/sin (e/+ 'a 3)))))
 (js/console.log "EMMY-RESULT" result)
+
+(require '[emmy.mafs :as mafs])
+(def result2 (mafs/cartesian)
+(js/console.log "EMMY-VIEWER-RESULT" result2)
 
     </script>
   </head>
