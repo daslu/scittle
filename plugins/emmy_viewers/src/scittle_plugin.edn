@@ -1,9 +1,9 @@
 [{:name       scittle/emmy-viewers
-  :namespaces [emmy.env]
+  :namespaces [emmy.viewer]
   :js         "./scittle.emmy-viewers.js"
   :shadow-config
   {:modules
    {:scittle.emmy-viewers
     {:init-fn    scittle.emmy-viewers/init
      :depends-on #{:scittle :scittle.emmy}
-     :entries    [emmy.viewer.sci]}}}}]
+     :entries    [emmy.viewer]}}}}]
