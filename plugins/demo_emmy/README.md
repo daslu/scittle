@@ -2,9 +2,17 @@
 
 A demo project of a custom scittle build.
 
-This demo project uses the `scittle.emmy` plugins which aren't part of the normal scittle distribution.
+This demo project uses the `scittle.emmy` & `scittle.emmy-viewers` plugins which
+aren't part of the normal scittle distribution.
 
 To produce release `.js` files, run: `bb release`.
+
+Note: Some of npm packages not automatically installed during the deps
+resolution, most probably due to some ns not required by this plugins, so if you
+encounter npm package missing, run `npm install` manually and rerun `bb
+relsease`.
+
+---
 
 See:
 
