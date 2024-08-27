@@ -1,20 +1,42 @@
 {:deps {io.github.babashka/scittle.build {:local/root "../../build"}
         io.github.babashka/http-server {:git/sha "b38c1f16ad2c618adae2c3b102a5520c261a7dd3"}
+        io.github.babashka/sci.nrepl {:git/sha "2f8a9ed2d39a1b09d2b4d34d95494b56468f4a23"}
         ;; emmy plugin
         io.github.babashka/scittle.emmy {:local/root "../../plugins/emmy"}
         io.github.babashka/scittle.emmy-viewers {:local/root "../../plugins/emmy_viewers"}
         }
  :tasks
- {:requires ([scittle.build :as build])
-  watch   {:doc "Watch build"
-           :task (build/build {:action "watch"})}
-  serve {:doc "Starts http server for serving static files"
-         :requires ([babashka.http-server :as http])
-         :task (do (http/serve {:port 1341 :dir "resources/public"})
-                   (println "Serving static assets at http://localhost:1341"))}
-  -dev {:depends [watch serve]}
+ {:requires ([scittle.build :as build]
+             [babashka.fs :as fs])
+
+  clean {:doc "Start from clean slate."
+         :task (do (run! fs/delete (fs/list-dir (fs/file "resources" "public" "js") "**.*"))
+                   (fs/delete-tree (fs/file "resources" "public" "js" "cljs-runtime"))
+                   (fs/delete-tree ".cpcache")
+                   (fs/delete-tree ".shadow-cljs"))}
+
+  shadow:watch {:doc "Development build. Starts webserver and watches for changes."
+                :task (build/build {:action "watch"
+                                    :args *command-line-args*})}
+
+  http-server {:doc "Starts http server for serving static files"
+               :requires ([babashka.http-server :as http])
+               :task (do (http/serve {:port 1341 :dir "resources/public"})
+                         (println "Serving static assets at http://localhost:1341"))}
+
+  browser-nrepl {:doc "Start browser nREPL"
+                 :requires ([sci.nrepl.browser-server :as bp])
+                 :task (bp/start! {})}
+
+  -dev {:depends [shadow:watch http-server browser-nrepl]}
+
   dev {:doc "Run compilation in watch mode and start http server"
        :task (do (run '-dev {:parallel true})
                  (deref (promise)))}
+
   release {:doc "Release build (advanced compiled JS)"
-           :task (build/build {})}}}
+           :task (build/build {})}
+
+  serve {:doc "Start http server for serving static files (blocking)"
+         :task (do (run 'http-server)
+                   (deref (promise)))}}}
