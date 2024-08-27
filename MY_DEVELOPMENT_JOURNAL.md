@@ -140,3 +140,29 @@ Output js files:
 -rw-r--r-- 1 ridho users 2.0M Aug 26 12:04 resources/public/js/scittle.emmy.js
 -rw-r--r-- 1 ridho users 3.1M Aug 26 12:04 resources/public/js/scittle.emmy-viewers.js
 ```
+
+
+## Notes from Slack Discussion
+
+Key points:
+
+- `expand` is necessary if you want to show, e.g., `(mafs/of-x {:y sin})`, that
+  doesn’t actually make sense alone, so expand wraps it in the components that
+  make it all work.
+
+- Every emmy-viewers form is a block of sci-able reagent code, so the first step
+  is to just print the data structure, then get expand working, then get eval working.
+
+```clojure
+(mafs/of-x {:x e/cos}) ;; this is emmy-viewers form, it returns a block of sci-able reagent code.
+(pprint (mafs/of-x {:x e/cos})) ;; this will show the reagent hiccup
+(pprint (meta (mafs/of-x {:x e/cos}))) ;; check its metadata
+(pprint (ev/expand (mafs/of-x {:x e/cos}))) ;; expand read the metadata and will wrap accourdingly
+```
+
+- What's the removing of metadata about? Metadata removal was because sub-pieces
+  have rendering functions attached to them as metadata, and sci tried to
+  serialize that and failed, so I stripped it all so only the data structures
+  remained. This is so if you provided, say, a bare plot without a wrapping
+  scene it could supply its own wrapping scene.
+
