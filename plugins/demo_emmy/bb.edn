@@ -7,7 +7,8 @@
         }
  :tasks
  {:requires ([scittle.build :as build]
-             [babashka.fs :as fs])
+             [babashka.fs :as fs]
+             [clojure.string :as str])
 
   clean {:doc "Start from clean slate."
          :task (do (run! fs/delete (fs/list-dir (fs/file "resources" "public" "js") "**.*"))
@@ -35,7 +36,13 @@
                  (deref (promise)))}
 
   release {:doc "Release build (advanced compiled JS)"
-           :task (build/build {})}
+           :task (let [path-to-fix "resources/public/js/scittle.emmy-viewers.js"]
+                   (build/build {})
+                   (-> path-to-fix
+                       slurp
+                       (str/replace (re-pattern "-ͯ")
+                                    "")
+                       (->> (spit path-to-fix))))}
 
   serve {:doc "Start http server for serving static files (blocking)"
          :task (do (run 'http-server)
