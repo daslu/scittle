@@ -8,7 +8,18 @@ The plugins are under [plugins/emmy](plugins/emmy) and [plugins/emmy_viewers](pl
 
 To try them out, we will need some aditional setup, as demonstrated in [plugins/demo_emmy](plugins/demo_emmy).
 
-    
+```bash
+cd plugins/demo_emmy
+npm install
+bb release
+cd resources/public
+python -m http.server 
+```    
+
+Then, you may browesr `localhost:8000` and edit
+[plugins/emmy/resources/public/index.html]([plugins/emmy/resources/public/index.html])
+[plugins/emmy/resources/public/example.cljs]([plugins/emmy/resources/public/example.cljs]).
+
 
 # Scittle
 
