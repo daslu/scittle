@@ -1,3 +1,15 @@
+# About this branch
+
+This branch, [daslu/scittle emmy_viewers_dev1 branch](https://github.com/daslu/scittle/tree/emmy_viewers_dev1), was forked from [reedho/scittle my_playground branch](https://github.com/reedho/scittle/tree/my_playground), that was forked from [babashka/scittle main branch](https://github.com/babashka/scittle).
+
+It offers the drafts of Scittle plugins for Emmy and Emmy-Viewers.
+
+The plugins are under [plugins/emmy] and [plugins/emmy_viewers].
+
+To try them out, we will need some aditional setup, as demonstrated in [plugins/demo_emmy].
+
+    
+
 # Scittle
 
 The [Small Clojure Interpreter](https://github.com/babashka/sci) exposed for usage in script tags.
