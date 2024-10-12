@@ -17,8 +17,8 @@ python -m http.server
 ```    
 
 Then, you may browesr `localhost:8000` and edit
-[plugins/emmy/resources/public/index.html]([plugins/emmy/resources/public/index.html])
-[plugins/emmy/resources/public/example.cljs]([plugins/emmy/resources/public/example.cljs]).
+[plugins/emmy/resources/public/index.html](plugins/demo_emmy/resources/public/index.html)
+[plugins/emmy/resources/public/example.cljs](plugins/demo_emmy/resources/public/example.cljs).
 
 
 # Scittle
