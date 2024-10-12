@@ -1,9 +1,9 @@
-(ns example)
-(require
- '[reagent.core :as r]
- '[reagent.dom :as rdom]
- '[emmy.viewer :as ev]
- '[clojure.walk :refer [postwalk]])
+(ns example
+  (:require
+   [reagent.core :as r]
+   [reagent.dom :as rdom]
+   [emmy.viewer :as ev]
+   [clojure.walk :refer [postwalk]]))
 
 (def viewer-name :emmy.scittle/reagent)
 
