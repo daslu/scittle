@@ -6,7 +6,14 @@ It offers the drafts of Scittle plugins for Emmy and Emmy-Viewers.
 
 The plugins are under [plugins/emmy](plugins/emmy) and [plugins/emmy_viewers](plugins/emmy_viewers).
 
-To try them out, we will need some aditional setup, as demonstrated in [plugins/demo_emmy](plugins/demo_emmy).
+## TODO
+- Make all of Emmy-Viewers work.
+- Package css links as part of the plugin (currently we directly link them it from the example HTML below).
+- Figure out how to package the plugin as a library for recommended use.
+- Figure out the reason for some strange characters that make the Emmy-Viewers cljs break in Scittle (currently we [remove them](https://github.com/daslu/scittle/blob/2b6177e/plugins/demo_emmy/bb.edn#L43) in the build process).
+
+## Usage
+To try the plugins out, we will need some aditional setup, as demonstrated in [plugins/demo_emmy](plugins/demo_emmy). Here is how to use it:
 
 ```bash
 cd plugins/demo_emmy
@@ -17,7 +24,7 @@ python -m http.server
 ```    
 
 Then, you may browesr `localhost:8000` and edit
-[plugins/emmy/resources/public/index.html](plugins/demo_emmy/resources/public/index.html)
+[plugins/emmy/resources/public/index.html](plugins/demo_emmy/resources/public/index.html) and
 [plugins/emmy/resources/public/example.cljs](plugins/demo_emmy/resources/public/example.cljs).
 
 
