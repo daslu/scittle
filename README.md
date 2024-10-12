@@ -4,9 +4,9 @@ This branch, [daslu/scittle emmy_viewers_dev1 branch](https://github.com/daslu/s
 
 It offers the drafts of Scittle plugins for Emmy and Emmy-Viewers.
 
-The plugins are under [plugins/emmy] and [plugins/emmy_viewers].
+The plugins are under [plugins/emmy](plugins/emmy) and [plugins/emmy_viewers](plugins/emmy_viewers).
 
-To try them out, we will need some aditional setup, as demonstrated in [plugins/demo_emmy].
+To try them out, we will need some aditional setup, as demonstrated in [plugins/demo_emmy](plugins/demo_emmy).
 
     
 
