@@ -1,5 +1,9 @@
 # Scittle
 
+> [!NOTE]  
+> This fork contains [emmy](./plugins/emmy/) and [emmy_viewer](./plugins/emmy_viewers/) plugin.
+> There are some notes we collected during the creation of the plugin [here](./doc/emmy/NOTES.md).
+
 The [Small Clojure Interpreter](https://github.com/babashka/sci) exposed for usage in script tags.
 
 Try it out on [CodePen](https://codepen.io/Prestance/pen/PoOdZQw)!
