@@ -10,6 +10,16 @@ bb release
 Note: In `plugins/emmy/deps.edn`, we set exclusion in order to not brings
 `org.babashka/sci` and `thheller/shadow-cljs`.
 
+To develop scittle cljs script with repl:
+
+```bash
+cd <repodir>/plugins/demo_emmy
+bb dev
+```
+
+Then browse to `http://localhost:1341/repl.html` and follow tips to connect 
+to repl below.
+
 
 ## Tips
 
@@ -19,13 +29,15 @@ The instruction from the doc failed to achieve seamless repl connection which
 give use "No cljs REPLs in current session" when evaluating directly from
 buffer.
 
-After some tinkering, it can be made to works by using `cider-connect-clj`
+As a workaround for now, it can be made to works by using `cider-connect-clj`
 instead of `cider-connect-cljs`, set the repl buffer type to `cljs` and it will
 link as usual, switch buffer from repl buffer to source buffer one time to
 trigger the linkage.
 
-1. Create an html file to serve the repl in `resources/public` directory. 
-   See [this](../../plugins/demo_emmy/resources/public/repl.html) for example.
+Step by step instruction:
+
+1. Create an html file to serve the repl in `resources/public` directory,
+   for example we create `repl.html` based on [this](../../plugins/demo_emmy/resources/public/repl.html).
 
 2. Start babashka dev task.
 
@@ -33,19 +45,22 @@ trigger the linkage.
 bb dev
 ```
 
-3. From emacs, open cljs file, e.g. `resources/public/cljs/script.cljs`, then
+3. Wait for some time and browse to http://localhost:1341/repl.html. It will create
+   connection between cljs dev nrepl server to browser js runtime.
+
+4. From emacs, open cljs file, e.g. `resources/public/cljs/script.cljs`, then
    type `M-x cider-connect-clj RET localhost RET 1339 RET`. At this point, the repl 
    should be started successfully but the source buffer was not linked into
    repl buffer yet.
 
-4. Go to repl repl buffer with `M-x switch-to-buffer`, and pick the correct repl
+5. Go to repl repl buffer with `M-x switch-to-buffer`, and pick the correct repl
    that is started in 3.
 
-5. Set the repl buffer to cljs by typing `M-x cider-set-repl-type RET cljs RET`.
+6. Set the repl buffer to cljs by typing `M-x cider-set-repl-type RET cljs RET`.
 
-6. Switch back to source buffer with `M-x switch-to-buffer` again.
+7. Switch back to source buffer with `M-x switch-to-buffer` again.
 
-7. At this point, the source and repl buffer now linked so that we can for example
+8. At this point, the source and repl buffer now linked so that we can for example
    type `C-c C-z` to switch back and forth between source and repl buffer.
 
 

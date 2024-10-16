@@ -3,6 +3,8 @@
 > [!NOTE]  
 > This fork contains [emmy](./plugins/emmy/) and [emmy_viewer](./plugins/emmy_viewers/) plugin.
 > There are some notes we collected during the creation of the plugin [here](./doc/emmy/NOTES.md).
+>
+> A work in progress example usage of this plugin is at [reedho/scittle-emmy-viewers-demo](https://github.com/reedho/scittle-emmy-viewers-demo) github repo.
 
 The [Small Clojure Interpreter](https://github.com/babashka/sci) exposed for usage in script tags.
 
@@ -23,7 +25,7 @@ To serve assets you can use the
 [babashka.http-server](https://github.com/babashka/http-server) dependency (with
 babashka or Clojure JVM):
 
-``` clojure
+```clojure
 (require '[babashka.http-server :as http])
 (http/serve {:port 1341 :dir "resources/public"})
 @(promise) ;; wait until process is killed
