@@ -43,6 +43,7 @@
   ;;(jsxgraph.sci/install!)
   (mathbox.sci/install!)
   (mathlive.sci/install!)
+  (emmy.sci/install!)
   (sci.ctx-store/swap-ctx!
    sci/merge-opts
    {:namespaces

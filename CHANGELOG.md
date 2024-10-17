@@ -2,6 +2,17 @@
 
 [Scittle](https://github.com/babashka/scittle): execute Clojure(Script) directly from browser script tags via SCI!
 
+<!-- To create a new NPM release: -->
+
+<!-- - Run `bb npm-publish`: this will compile, bump patch version, create tag and and push to npm and Github -->
+<!-- - `bb replace-version 0.6.16 0.6.17` -->
+<!-- - Create Github release with updated links from `doc/links.md` -->
+<!-- - `bb gh-pages` -->
+
+## v0.6.19 (2024-10-08)
+
+- Add `cljs.pprint/code-dispatch` and `cljs.pprint/with-pprint-dispatch`
+
 ## v0.6.17 (2024-04-30)
 
 - [#77](https://github.com/babashka/babashka/issues/77): make dependency on browser (`js/document`) optional so scittle can run in webworkers, Node.js, etc.
