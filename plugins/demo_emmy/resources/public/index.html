@@ -8,7 +8,14 @@
     }
     </style>
 
-    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/computer-modern@0.1.2/cmu-serif.css">
+    <link rel="stylesheet" href="https://unpkg.com/mafs@0.18.8/core.css">
+    <link rel="stylesheet" href="https://unpkg.com/mafs@0.18.8/font.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.5.0/distrib/jsxgraph.css">
+    <link rel="stylesheet" href="https://unpkg.com/mathbox@2.3.1/build/mathbox.css">
+    <link rel="stylesheet" href="https://unpkg.com/mathlive@0.85.1/dist/mathlive-static.css">
+    <link rel="stylesheet" href="https://unpkg.com/mathlive@0.85.1/dist/mathlive-fonts.css">
+
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -17,67 +24,10 @@
     <script src="/js/scittle.reagent.js" type="application/javascript"></script>
     <script src="/js/scittle.emmy.js" type="application/javascript"></script>
     <script src="/js/scittle.emmy-viewers.js" type="application/javascript"></script>
-    <script type="application/x-scittle">
-
-(require
-  '[reagent.core :as r]
-  '[reagent.dom :as rdom]
-  '[emmy.viewer :as ev]
-  '[clojure.walk :refer [postwalk]])
-
-(def viewer-name :emmy.scittle/reagent)
-
-(def xform-key
-  "Currently transforms are stored under this key for compatibility with the
-  Emmy-Viewers Clerk code."
-  :nextjournal.clerk/viewer)
-
-(defn ^:no-doc strip-meta
-  "Given an unevaluated Reagent body, returns an identical form with all metadata
-  stripped off."
-  [form]
-  (postwalk
-   (fn [x]
-     (if (meta x)
-       (vary-meta x dissoc xform-key)
-       x))
-   form))
-
-(defn ->f
-  "Given a quoted Reagent body (which might use functions like
-  `reagent.core/with-let` or third-party components, not just Hiccup syntax),
-  returns a no-argument-function component that renders an `eval`-ed version of
-  `body`."
-  [body]
-  (eval
-   (list 'fn [] (strip-meta body))))
-
-
-;; --- emmy viewer code demo ---
-
-(require
-  '[emmy.env :as e]
-  '[emmy.mafs :as mafs]
-  )
-
-(def some-graph
-  (mafs/mafs
-    {:height 300}
-    (mafs/cartesian)
-    (mafs/vector [1 2] {:color :blue})
-    (mafs/of-x {:y (fn [x] (e/square (e/sin (e/+ x 3)))) :color :blue})
-    (mafs/text "face" {:color :green})))
-
-(defn my-component []
-  [:div
-    [(->f some-graph)]])
-
-(rdom/render [my-component] (.getElementById js/document "app"))
-
-    </script>
+    <script src="example.cljs" type="application/x-scittle""></script>
   </head>
   <body>
-    <h1>Hello Emmy Viewer!</h1>
+    <!-- <h1>Hello Emmy Viewer!</h1> -->
     <div id="app"></div>
   </body>
 </html>
