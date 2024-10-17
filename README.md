@@ -6,14 +6,14 @@ It offers the drafts of Scittle plugins for Emmy and Emmy-Viewers.
 
 The plugins are under [plugins/emmy](plugins/emmy) and [plugins/emmy_viewers](plugins/emmy_viewers).
 
-A work in progress demo of these plugins is at [reedho/scittle-emmy-viewers-demo](https://github.com/reedho/scittle-emmy-viewers-demo) github repo, which is now published to [https://ev-demo.datafy.id/](https://ev-demo.datafy.id/),
+A work in progress demo of these plugins is at [reedho/scittle-emmy-viewers-demo](https://github.com/reedho/scittle-emmy-viewers-demo) repo, which is published to [https://ev-demo.datafy.id/](https://ev-demo.datafy.id/).
 
 ## TODO
 
 - Make all of Emmy-Viewers work.
 - Package css links as part of the plugin (currently we directly link them it from the example HTML below).
 - Figure out how to package the plugin as a library for recommended use.
-- Figure out the reason for some strange characters that make the Emmy-Viewers cljs break in Scittle (currently we [remove them](https://github.com/daslu/scittle/blob/2b6177e/plugins/demo_emmy/bb.edn#L43) in the build process).
+- ~~Figure out the reason for some strange characters that make the Emmy-Viewers cljs break in Scittle (currently we [remove them](https://github.com/daslu/scittle/blob/2b6177e/plugins/demo_emmy/bb.edn#L43) in the build process).~~ [[Fixed](https://clojurians.slack.com/archives/C6N245JGG/p1724829585794869?thread_ts=1724772275.771389&cid=C6N245JGG)]
 
 ## Usage
 
