@@ -1,6 +1,6 @@
 # About this branch
 
-This branch, [daslu/scittle emmy_viewers_dev1 branch](https://github.com/daslu/scittle/tree/emmy_viewers_dev1), was forked from [reedho/scittle my_playground branch](https://github.com/reedho/scittle/tree/my_playground), that was forked from [babashka/scittle main branch](https://github.com/babashka/scittle).
+This branch was forked from [reedho/scittle my_playground branch](https://github.com/reedho/scittle/tree/my_playground), that was forked from [babashka/scittle main branch](https://github.com/babashka/scittle).
 
 It offers the drafts of Scittle plugins for Emmy and Emmy-Viewers.
 
@@ -10,7 +10,7 @@ A work in progress demo of these plugins is at [reedho/scittle-emmy-viewers-demo
 
 ## TODO
 
-- Make all of Emmy-Viewers work.
+- Make all of Emmy-Viewers examples work.
 - Package css links as part of the plugin (currently we directly link them it from the example HTML below).
 - Figure out how to package the plugin as a library for recommended use.
 - ~~Figure out the reason for some strange characters that make the Emmy-Viewers cljs break in Scittle (currently we [remove them](https://github.com/daslu/scittle/blob/2b6177e/plugins/demo_emmy/bb.edn#L43) in the build process).~~ [[Fixed](https://clojurians.slack.com/archives/C6N245JGG/p1724829585794869?thread_ts=1724772275.771389&cid=C6N245JGG)]
