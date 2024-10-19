@@ -37,8 +37,7 @@
 
 (require
  '[emmy.env :as e]
- '[emmy.mafs :as mafs]
- )
+ '[emmy.mafs :as mafs])
 
 (def some-graph
   (mafs/mafs
