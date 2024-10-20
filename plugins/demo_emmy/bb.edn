@@ -36,13 +36,7 @@
                  (deref (promise)))}
 
   release {:doc "Release build (advanced compiled JS)"
-           :task (let [path-to-fix "resources/public/js/scittle.emmy-viewers.js"]
-                   (build/build {})
-                   (-> path-to-fix
-                       slurp
-                       (str/replace (re-pattern "-ͯ")
-                                    "")
-                       (->> (spit path-to-fix))))}
+           :task (build/build {})}
 
   serve {:doc "Start http server for serving static files (blocking)"
          :task (do (run 'http-server)
